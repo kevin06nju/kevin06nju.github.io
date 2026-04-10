@@ -451,11 +451,45 @@ img {
 .highlight .p { color: #87867f; }
 .highlight .err { color: #b53333; }
 
+/* --- Post Meta Enhanced --- */
+.post-meta-sep {
+  color: var(--text-tertiary);
+  margin: 0 2px;
+}
+
+.post-topic-link {
+  color: var(--terracotta);
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.post-topic-link:hover {
+  color: var(--coral);
+}
+
+.tag-link {
+  display: inline-block;
+  color: var(--text-tertiary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.tag-link:hover {
+  color: var(--terracotta);
+}
+
 /* --- Post Footer --- */
 .post-footer {
   margin-top: 56px;
   padding-top: 28px;
   border-top: 1px solid var(--border-warm);
+}
+
+.post-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .back-link {
@@ -475,6 +509,270 @@ img {
 .back-link:hover {
   color: var(--near-black);
   box-shadow: var(--ring-deep) 0px 0px 0px 1px;
+}
+
+/* --- Home Sections --- */
+.home-section {
+  margin-bottom: 48px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--near-black);
+}
+
+.section-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+}
+
+.section-link:hover {
+  color: var(--terracotta);
+}
+
+/* --- Topics Grid --- */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--ivory);
+  border: 1px solid var(--border-cream);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: all 0.25s ease;
+  color: var(--text-primary);
+}
+
+.topic-card:hover {
+  border-color: var(--border-warm);
+  box-shadow: var(--shadow-whisper);
+  transform: translateY(-2px);
+  color: var(--text-primary);
+}
+
+.topic-card-icon {
+  font-size: 1.6rem;
+  color: var(--terracotta);
+  margin-bottom: 12px;
+}
+
+.topic-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--near-black);
+  margin-bottom: 8px;
+}
+
+.topic-card:hover .topic-card-name {
+  color: var(--terracotta);
+}
+
+.topic-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.topic-card-count {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+}
+
+/* --- Topic Detail Page --- */
+.topic-page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.topic-header {
+  text-align: center;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.topic-icon {
+  font-size: 2.2rem;
+  color: var(--terracotta);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.topic-title {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: var(--near-black);
+  margin-bottom: 12px;
+}
+
+.topic-description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.topic-stats {
+  margin-bottom: 24px;
+}
+
+.topic-stat {
+  font-size: 0.88rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  background: var(--warm-sand);
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.topic-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-warm);
+}
+
+/* --- Page Header (Topics/Tags listing) --- */
+.page-header {
+  text-align: center;
+  padding-bottom: 40px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: var(--near-black);
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+/* --- Tag Cloud --- */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 24px;
+  background: var(--ivory);
+  border: 1px solid var(--border-cream);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.tag-pill:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+  background: rgba(201, 100, 66, 0.06);
+}
+
+.tag-pill-count {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  background: var(--warm-sand);
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
+/* --- Tag Sections --- */
+.tag-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.tag-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--near-black);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-cream);
+}
+
+.tag-post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tag-post-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: var(--text-primary);
+  transition: all 0.15s;
+}
+
+.tag-post-item:hover {
+  background: var(--ivory);
+  color: var(--text-primary);
+}
+
+.tag-post-date {
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  min-width: 90px;
+}
+
+.tag-post-title {
+  font-size: 0.98rem;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.tag-post-item:hover .tag-post-title {
+  color: var(--terracotta);
+}
+
+.tag-post-topic {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--terracotta);
+  background: rgba(201, 100, 66, 0.1);
+  padding: 2px 10px;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 /* --- Site Footer --- */
@@ -574,6 +872,10 @@ img {
     font-size: 1.8rem;
   }
 
+  .topic-title {
+    font-size: 1.8rem;
+  }
+
   .post-content {
     font-size: 1rem;
   }
@@ -581,6 +883,19 @@ img {
   .post-content pre {
     padding: 18px 20px;
     border-radius: 10px;
+  }
+
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tag-post-item {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+
+  .tag-post-topic {
+    order: 3;
   }
 }
 
@@ -605,5 +920,13 @@ img {
 
   .logo-text {
     display: none;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .topic-card {
+    padding: 20px 22px;
   }
 }

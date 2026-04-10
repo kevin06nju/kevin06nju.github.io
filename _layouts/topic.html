@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<div class="topic-page">
+  <header class="topic-header">
+    <span class="topic-icon">{{ page.icon }}</span>
+    <h1 class="topic-title">{{ page.topic_name }}</h1>
+    <p class="topic-description">{{ page.description }}</p>
+  </header>
+
+  {% assign topic_posts = site.posts | where: "topic", page.topic_name %}
+
+  <div class="topic-stats">
+    <span class="topic-stat">{{ topic_posts.size }} 篇文章</span>
+  </div>
+
+  <section class="post-list">
+    {% for post in topic_posts %}
+      <a href="{{ post.url | relative_url }}" class="post-card">
+        <div class="post-card-meta">
+          <span class="post-card-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </div>
+        <h2 class="post-card-title">{{ post.title }}</h2>
+        {% if post.excerpt %}
+          <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+        {% endif %}
+        {% if post.tags.size > 0 %}
+          <div class="post-card-tags">
+            {% for tag in post.tags %}
+              <span class="tag">#{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </section>
+
+  {% if topic_posts.size == 0 %}
+    <div class="empty-state">
+      <p>This topic has no posts yet.</p>
+    </div>
+  {% endif %}
+
+  <footer class="topic-footer">
+    <a href="{{ '/topics/' | relative_url }}" class="back-link">&larr; All Topics</a>
+  </footer>
+</div>

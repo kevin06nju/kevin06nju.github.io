@@ -5,19 +5,22 @@ layout: default
   <header class="post-header">
     <div class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
-      {% if page.categories.size > 0 %}
-        <span class="post-categories">
-          {% for cat in page.categories %}
-            <span class="category-tag">{{ cat }}</span>
-          {% endfor %}
-        </span>
+      {% if page.topic %}
+        <span class="post-meta-sep">/</span>
+        {% assign topic_slug = "" %}
+        {% for t in site.topics %}
+          {% if t[1].name == page.topic %}
+            {% assign topic_slug = t[0] %}
+          {% endif %}
+        {% endfor %}
+        <a href="{{ '/topics/' | append: topic_slug | append: '/' | relative_url }}" class="post-topic-link">{{ page.topic }}</a>
       {% endif %}
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
     {% if page.tags.size > 0 %}
       <div class="post-tags">
         {% for tag in page.tags %}
-          <span class="tag">#{{ tag }}</span>
+          <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag-link">#{{ tag }}</a>
         {% endfor %}
       </div>
     {% endif %}
@@ -26,6 +29,17 @@ layout: default
     {{ content }}
   </div>
   <footer class="post-footer">
-    <a href="{{ '/' | relative_url }}" class="back-link">&larr; Back to Home</a>
+    <div class="post-footer-nav">
+      {% if page.topic %}
+        {% assign topic_slug = "" %}
+        {% for t in site.topics %}
+          {% if t[1].name == page.topic %}
+            {% assign topic_slug = t[0] %}
+          {% endif %}
+        {% endfor %}
+        <a href="{{ '/topics/' | append: topic_slug | append: '/' | relative_url }}" class="back-link">&larr; {{ page.topic }}</a>
+      {% endif %}
+      <a href="{{ '/' | relative_url }}" class="back-link">&larr; Home</a>
+    </div>
   </footer>
 </article>

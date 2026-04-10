@@ -1,0 +1,41 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+<div class="page-header">
+  <h1 class="page-title">Tags</h1>
+  <p class="page-subtitle">按标签浏览文章</p>
+</div>
+
+<section class="tag-cloud">
+  {% assign sorted_tags = site.tags | sort %}
+  {% for tag_data in sorted_tags %}
+    <a href="#{{ tag_data[0] | slugify }}" class="tag-pill">
+      {{ tag_data[0] }}
+      <span class="tag-pill-count">{{ tag_data[1].size }}</span>
+    </a>
+  {% endfor %}
+</section>
+
+<section class="tag-sections">
+  {% assign sorted_tags = site.tags | sort %}
+  {% for tag_data in sorted_tags %}
+    {% assign tag_name = tag_data[0] %}
+    {% assign tag_posts = tag_data[1] %}
+    <div class="tag-section" id="{{ tag_name | slugify }}">
+      <h2 class="tag-section-title">#{{ tag_name }}</h2>
+      <div class="tag-post-list">
+        {% for post in tag_posts %}
+          <a href="{{ post.url | relative_url }}" class="tag-post-item">
+            <span class="tag-post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <span class="tag-post-title">{{ post.title }}</span>
+            {% if post.topic %}
+              <span class="tag-post-topic">{{ post.topic }}</span>
+            {% endif %}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</section>

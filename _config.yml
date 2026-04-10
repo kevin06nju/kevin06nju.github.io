@@ -30,6 +30,22 @@ exclude:
   - LICENSE
   - params.json
   - .claude
+  - DESIGN.md
+
+# Topic definitions (slug → display info)
+topics:
+  ai-basics:
+    name: "AI 基础"
+    description: "人工智能基础概念、学习路线与入门指南"
+    icon: "&#9672;"
+  llm:
+    name: "大语言模型"
+    description: "LLM 原理、应用与前沿进展"
+    icon: "&#9671;"
+  tools:
+    name: "工具与实践"
+    description: "AI 开发工具、框架使用与实战技巧"
+    icon: "&#9670;"
 
 # Default front matter
 defaults:
