@@ -1,0 +1,40 @@
+title: Kevin's AI Learning Hub
+description: AI 学习经验与技术分享
+url: "https://kevin06nju.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# Pagination
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Exclude from build
+exclude:
+  - README.md
+  - LICENSE
+  - params.json
+  - .claude
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

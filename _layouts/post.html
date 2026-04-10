@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+      {% if page.categories.size > 0 %}
+        <span class="post-categories">
+          {% for cat in page.categories %}
+            <span class="category-tag">{{ cat }}</span>
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+          <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <footer class="post-footer">
+    <a href="{{ '/' | relative_url }}" class="back-link">&larr; Back to Home</a>
+  </footer>
+</article>
