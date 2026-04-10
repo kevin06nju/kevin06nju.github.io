@@ -1,7 +1,7 @@
 <header class="site-header">
   <nav class="nav-container">
     <a href="{{ '/' | relative_url }}" class="site-logo">
-      <span class="logo-icon">&#9670;</span>
+      <span class="logo-icon">🧠</span>
       <span class="logo-text">{{ site.title }}</span>
     </a>
     <div class="nav-links">
@@ -9,7 +9,7 @@
       <a href="{{ '/topics/' | relative_url }}" class="nav-link{% if page.url contains '/topics' %} active{% endif %}">Topics</a>
       <a href="{{ '/tags/' | relative_url }}" class="nav-link{% if page.url == '/tags/' %} active{% endif %}">Tags</a>
       <a href="{{ '/about' | relative_url }}" class="nav-link{% if page.url == '/about/' %} active{% endif %}">About</a>
-      <a href="https://github.com/kevin06nju" class="nav-link" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/{{ site.author.github }}" class="nav-link" target="_blank" rel="noopener">GitHub</a>
     </div>
   </nav>
 </header>

@@ -37,15 +37,24 @@ topics:
   ai-basics:
     name: "AI 基础"
     description: "人工智能基础概念、学习路线与入门指南"
-    icon: "&#9672;"
+    icon: "🧠"
+    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
   llm:
     name: "大语言模型"
     description: "LLM 原理、应用与前沿进展"
-    icon: "&#9671;"
+    icon: "🤖"
+    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
   tools:
     name: "工具与实践"
     description: "AI 开发工具、框架使用与实战技巧"
-    icon: "&#9670;"
+    icon: "🛠"
+    gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+
+# Author info
+author:
+  name: "Kevin"
+  bio: "AI learner & developer, sharing insights along the journey."
+  github: "kevin06nju"
 
 # Default front matter
 defaults:

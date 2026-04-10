@@ -4,11 +4,17 @@ title: About
 permalink: /about/
 ---
 
+<div class="page-header-banner" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+  <h1 class="page-title">About</h1>
+  <p class="page-subtitle">关于这个站点</p>
+</div>
+
+<div class="page-content-wrapper">
 <div class="page-content" markdown="1">
 
-# About
+## Hi, I'm Kevin 👋
 
-Hi, I'm Kevin. This is my personal site for sharing AI learning experiences.
+This is my personal site for sharing AI learning experiences.
 
 I created this space to document my journey in exploring artificial intelligence — from foundational concepts to hands-on projects. Here you'll find practical insights, technical notes, and lessons learned along the way.
 
@@ -23,4 +29,5 @@ I created this space to document my journey in exploring artificial intelligence
 
 - GitHub: [kevin06nju](https://github.com/kevin06nju)
 
+</div>
 </div>

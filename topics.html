@@ -3,7 +3,7 @@ layout: default
 title: Topics
 permalink: /topics/
 ---
-<div class="page-header">
+<div class="page-header-banner">
   <h1 class="page-title">Topics</h1>
   <p class="page-subtitle">按主题浏览文章</p>
 </div>
@@ -14,10 +14,14 @@ permalink: /topics/
     {% assign topic = topic_entry[1] %}
     {% assign topic_posts = site.posts | where: "topic", topic.name %}
     <a href="{{ '/topics/' | append: slug | append: '/' | relative_url }}" class="topic-card">
-      <span class="topic-card-icon">{{ topic.icon }}</span>
-      <h2 class="topic-card-name">{{ topic.name }}</h2>
-      <p class="topic-card-desc">{{ topic.description }}</p>
-      <span class="topic-card-count">{{ topic_posts.size }} 篇文章</span>
+      <div class="topic-card-banner" style="background: {{ topic.gradient }};">
+        {{ topic.icon }}
+      </div>
+      <div class="topic-card-body">
+        <h2 class="topic-card-name">{{ topic.name }}</h2>
+        <p class="topic-card-desc">{{ topic.description }}</p>
+        <span class="topic-card-count">{{ topic_posts.size }} 篇文章</span>
+      </div>
     </a>
   {% endfor %}
 </section>

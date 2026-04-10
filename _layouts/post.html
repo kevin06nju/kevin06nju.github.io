@@ -1,45 +1,49 @@
 ---
 layout: default
 ---
-<article class="post-full">
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
-      {% if page.topic %}
-        <span class="post-meta-sep">/</span>
-        {% assign topic_slug = "" %}
-        {% for t in site.topics %}
-          {% if t[1].name == page.topic %}
-            {% assign topic_slug = t[0] %}
-          {% endif %}
-        {% endfor %}
-        <a href="{{ '/topics/' | append: topic_slug | append: '/' | relative_url }}" class="post-topic-link">{{ page.topic }}</a>
-      {% endif %}
+{% assign post_topic_gradient = "linear-gradient(135deg, #a8b8d8 0%, #c4b5d4 100%)" %}
+{% assign post_topic_icon = "📝" %}
+{% assign topic_slug = "" %}
+{% for t in site.topics %}
+  {% if t[1].name == page.topic %}
+    {% assign post_topic_gradient = t[1].gradient %}
+    {% assign post_topic_icon = t[1].icon %}
+    {% assign topic_slug = t[0] %}
+  {% endif %}
+{% endfor %}
+
+<div class="post-full-wrapper">
+  <article class="post-full">
+    <div class="post-cover-full" style="background: {{ post_topic_gradient }};">
+      {{ post_topic_icon }}
     </div>
-    <h1 class="post-title">{{ page.title }}</h1>
-    {% if page.tags.size > 0 %}
-      <div class="post-tags">
-        {% for tag in page.tags %}
-          <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag-link">#{{ tag }}</a>
-        {% endfor %}
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+        {% if page.topic %}
+          <span class="post-meta-sep">/</span>
+          <a href="{{ '/topics/' | append: topic_slug | append: '/' | relative_url }}" class="post-topic-link">{{ page.topic }}</a>
+        {% endif %}
       </div>
-    {% endif %}
-  </header>
-  <div class="post-content">
-    {{ content }}
-  </div>
-  <footer class="post-footer">
-    <div class="post-footer-nav">
-      {% if page.topic %}
-        {% assign topic_slug = "" %}
-        {% for t in site.topics %}
-          {% if t[1].name == page.topic %}
-            {% assign topic_slug = t[0] %}
-          {% endif %}
-        {% endfor %}
-        <a href="{{ '/topics/' | append: topic_slug | append: '/' | relative_url }}" class="back-link">&larr; {{ page.topic }}</a>
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.tags.size > 0 %}
+        <div class="post-tags">
+          {% for tag in page.tags %}
+            <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag-link">#{{ tag }}</a>
+          {% endfor %}
+        </div>
       {% endif %}
-      <a href="{{ '/' | relative_url }}" class="back-link">&larr; Home</a>
+    </header>
+    <div class="post-content">
+      {{ content }}
     </div>
-  </footer>
-</article>
+    <footer class="post-footer">
+      <div class="post-footer-nav">
+        {% if page.topic %}
+          <a href="{{ '/topics/' | append: topic_slug | append: '/' | relative_url }}" class="back-link">&larr; {{ page.topic }}</a>
+        {% endif %}
+        <a href="{{ '/' | relative_url }}" class="back-link">&larr; Home</a>
+      </div>
+    </footer>
+  </article>
+</div>
